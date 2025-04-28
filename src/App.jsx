@@ -3,10 +3,10 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home.jsx';
 import Books from './components/Books.jsx';
 import Navbar from './components/Navbar.jsx';
-import SingleBook from './components/SingleBook.jsx';
-// import Register from './components/Register.jsx';
-// import Login from './components/Login.jsx';
-// import Account from './components/Account.jsx';
+import SingleBook from './components/SinlgeBook.jsx';
+import Register from './components/Register.jsx';
+import Login from './components/Login.jsx';
+import Account from './components/Account.jsx';
 
 
 function App() {
@@ -54,7 +54,7 @@ function App() {
             />
           }
         />
-        {/* <Route 
+        <Route 
           path='/login'
           element={
             <Login 
@@ -64,8 +64,8 @@ function App() {
               setUser={setUser}
             />
           }
-        /> */}
-        {/* <Route 
+        />
+        <Route 
           path='/register'
           element={
             <Register
@@ -74,8 +74,8 @@ function App() {
               setUser={setUser}
             />
           }
-        /> */}
-        {/* <Route 
+        />
+        <Route 
           path='/account'
           element={
             <Account 
@@ -85,7 +85,7 @@ function App() {
               setUser={setUser}
             />
           }
-        /> */}
+        />
       </Routes>
     </div>
   )

@@ -26,15 +26,18 @@ const Navbar = ({ token, setToken, user }) => {
                     <Link to='/'>
                         Home
                     </Link>
+                    &nbsp;
                     <Link to='/books'>
                         Book Library
                     </Link>
+                    &nbsp;
                     {
                         token && user ? (
                             <>
                                 <Link to='/account'>
                                     Account Page
                                 </Link>
+                                &nbsp;
                                 <button onClick={() => handleLogout()}>
                                     Logout
                                 </button>
@@ -42,6 +45,7 @@ const Navbar = ({ token, setToken, user }) => {
                         ) : (
                             <>
                                 <Link to='/login'>Login</Link>
+                                &nbsp;
                                 <Link to='/register'>Register</Link>
                             </>
                         )

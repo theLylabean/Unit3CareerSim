@@ -44,22 +44,19 @@ Step 4: ✅
         return (
             <>
                 <div className='bookDetails-container'>
-                    {singleBook && (() => {
-                        const { id, title, author, description, coverimage, available, bookId } = singleBook;
-                        return (
-                            <div key={id}>
-                                <h1>{title}</h1>
-                                <img 
-                                    src={coverimage} 
-                                    alt={title}
-                                    onError={(e) => {
-                                        e.target.onError = null;
-                                        e.target.src = fallbackImg;
-                                    }} />
-                                <p>{author}</p>
-                                <p>{description}</p>
-                                {/* {
-                                    available && token ? (
+                    <div key={singleBook.id}>
+                        <h1>{singleBook.title}</h1>
+                            <img 
+                                src={singleBook.coverimage} 
+                                onError={(e) => {
+                                    e.target.onError = null;
+                                    e.target.src = fallbackImg;
+                                }} 
+                            />
+                                <p>{singleBook.author}</p>
+                                <p>{singleBook.description}</p>
+                                {
+                                    singleBook.available && token ? (
                                         <button onClick={() => handleCheckout(bookId)}>
                                             Checkout
                                         </button>
@@ -71,10 +68,8 @@ Step 4: ✅
                                             </button>
                                         </>
                                     )
-                                } */}
+                                }
                             </div>
-                        );
-                    })}
                 </div>
             </>
         )
