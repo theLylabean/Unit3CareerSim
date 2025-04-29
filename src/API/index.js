@@ -38,14 +38,15 @@ const getLogin = async (email, password) => {
     }
 }
 
-const getRegister = async (firstName, lastName, email, password) => {
+const getRegister = async (firstname, lastname, email, password, confirmPassword) => {
     try {
         const res = await fetch(`${baseUrl}/users/register`, {
             method: 'POST',
             headers:{'Content-Type': 'application/json'},
-            body: JSON.stringify({ firstName, lastName, email, password }),
+            body: JSON.stringify({ firstname, lastname, email, password }),
         });
         const result = await res.json();
+        console.log(result);
         return result;
     } catch (error) {
         console.error(error.message);

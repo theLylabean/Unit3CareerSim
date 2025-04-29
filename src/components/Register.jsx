@@ -26,8 +26,8 @@ const Register = ({ setUser, setToken }) => {
     const navigate = useNavigate();
     const [registerError, setRegisterError] = useState(null);
     const [registerUser, setRegisterUser] = useState({
-        firstName: '',
-        lastName: '',
+        firstname: '',
+        lastname: '',
         email: '',
         password: '',
         confirmPassword: '',
@@ -43,28 +43,32 @@ const Register = ({ setUser, setToken }) => {
             return;
         }
         if (password !== confirmPassword) {
-            setSignUpError('Passwords do not match.')
+            setRegisterError('Passwords do not match.')
             return;
         }
 
         try {
             const response = await getRegister(firstName, lastName, email, password, confirmPassword);
+            console.log(response);
+            if (!response.token) {
+                setRegisterError(response.message);
+                return
+            }
             setUser({
-                firstName: response.firstname,
-                lastName: response.lastname,
+                firstname: response.firstname,
+                lastname: response.lastname,
                 email: response.email,
                 password: response.password,
             })
-            // setToken(response.token)
-            // localStorage.setItem('token', response.token);
+            setToken(response.token)
+            localStorage.setItem('token', response.token);
+            navigate('/')
         } catch (error) {
             console.error(error.message);
-            setRegisterError('Failed to register. Please try again.')
-        // } finally {
-        //     alert('Registration successful. You will now be redirected to the home page.');
-        //     navigate('/');
+            setRegisterError('Failed to register. Please try again.', error.message);
         }
     }
+    
     return (
         <div>
             <h2>

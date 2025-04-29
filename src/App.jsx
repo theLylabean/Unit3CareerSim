@@ -79,10 +79,9 @@ function App() {
           path='/account'
           element={
             <Account 
-              token={token}
-              setToken={setToken}
               user={user}
               setUser={setUser}
+              singleBook={singleBook}
             />
           }
         />

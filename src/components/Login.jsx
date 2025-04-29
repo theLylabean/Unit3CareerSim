@@ -18,7 +18,7 @@ const Login = ({ setToken, setUser }) => {
                     localStorage.setItem('token', response.token);
                     setToken(response.token);
                     setUser(response);
-                    // navigate('/account')
+                    navigate('/account')
                 } else {
                     setLoginError(response.message || '** Invalid username or password **')
                 }

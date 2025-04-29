@@ -56,7 +56,7 @@ Step 4: ✅
                                 <p>{singleBook.author}</p>
                                 <p>{singleBook.description}</p>
                                 {
-                                    singleBook.available && token ? (
+                                    token && singleBook.available ? (
                                         <button onClick={() => handleCheckout(bookId)}>
                                             Checkout
                                         </button>

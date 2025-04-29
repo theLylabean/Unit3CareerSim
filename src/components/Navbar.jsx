@@ -32,7 +32,7 @@ const Navbar = ({ token, setToken, user }) => {
                     </Link>
                     &nbsp;
                     {
-                        token && user ? (
+                        token ? (
                             <>
                                 <Link to='/account'>
                                     Account Page
