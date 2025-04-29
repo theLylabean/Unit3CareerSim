@@ -1,6 +1,9 @@
 import { useState, useRef } from "react";
+import '../css/searchbar.css';
+import { useNavigate } from "react-router-dom";
 
 const Searchbar = ({ books }) => {
+    const navigate = useNavigate();
     const dropdownRef = useRef(null);
     // const inputRef = useRef(null);
     const [searchInput, setSearchInput] = useState('');
@@ -8,13 +11,15 @@ const Searchbar = ({ books }) => {
 
     const handleChange = (e) => {     
         const value = e.target.value;  
+        setSearchInput(value);
+        const lowerValue = value.toLowerCase();
         const filteredBooks = books.filter((book) => {
-            return book.title?.toLowerCase().includes(searchInput.toLowerCase() ||
-        book.author?.toLowerCase().includes(searchResults))
+            return (
+                book.title?.toLowerCase().includes(lowerValue) ||
+                book.author?.toLowerCase().includes(lowerValue))
         });
         console.log(filteredBooks);
 
-        setSearchInput(value);
         setSearchResults(filteredBooks);
     }
 
@@ -51,12 +56,13 @@ const Searchbar = ({ books }) => {
                                     <li
                                         key={result.id}
                                         onMouseDown={() => {
-                                            searchInput('');
+                                            setSearchInput('');
                                             setSearchResults([]);
+                                            navigate(`/books/${result.id}`);
                                             console.log('Clicked:', result);
                                         }}
                                     >
-                                        {result.name}
+                                        {result.title} - {result.author}
                                     </li>
                                 ))
                             }

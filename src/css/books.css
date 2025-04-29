@@ -1,0 +1,12 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    display: inline-flex;
+    float: left;
+    /* align-items: center; */
+    gap: 3px;
+    font-size: 2rem;
+}

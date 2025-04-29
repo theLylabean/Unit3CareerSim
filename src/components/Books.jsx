@@ -15,7 +15,7 @@ Step 4: ✅
 
 import { useEffect } from 'react';
 import { getBooks } from '../API/index.js';
-// import '../css/books.css';
+import '../css/books.css';
 import fallbackImg from '../pictures/bookcover1.jpg';
 import { useNavigate } from 'react-router-dom';
 import Searchbar from './Searchbar.jsx';
@@ -41,9 +41,11 @@ const Books = ({ books, setBooks, setSingleBook }) => {
             <h1>
                 Book Library
             </h1>
-            <Searchbar 
-                books={books}
-            />
+            <div className='search-container'>
+                <Searchbar 
+                    books={books}
+                />
+            </div>
             <div 
                 className='book-card'>
                     {Array.isArray(books) && books.map((book) => {
