@@ -17,6 +17,11 @@ label {
     margin: 2rem auto;
 }
 
+.books-header-container {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .book-card {
     display: block;
     margin: .25rem;

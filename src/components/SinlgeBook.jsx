@@ -42,10 +42,11 @@ Step 4: ✅
 
         return (
             <>
-                <div className='bookDetails-container'>
+                <div className='book-details-container'>
                     <div key={singleBook.id}>
                         <h1>{singleBook.title}</h1>
                             <img 
+                                
                                 src={singleBook.coverimage} 
                                 onError={(e) => {
                                     e.target.onError = null;
@@ -53,7 +54,7 @@ Step 4: ✅
                                 }} 
                             />
                             <p>{singleBook.author}</p>
-                            <p>{singleBook.description}</p>
+                            <p className='description'>{singleBook.description}</p>
                             <button onClick={() => navigate(-1)}>
                                 Return to Book Library
                             </button>
@@ -73,7 +74,11 @@ Step 4: ✅
                             <br />
                             {
                                 successMessage && (
-                                    <p className='checkout-unavailable'>Success</p>
+                                    <div className='success-container'>
+                                        <p className='checkout-success'>Book Successfully Reserved! <span className='material-icons'>
+                                            celebration
+                                        </span></p>
+                                    </div>
                                 )
                             }
                     </div>

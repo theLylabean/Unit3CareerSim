@@ -21,7 +21,9 @@ const Navbar = ({ token, setToken, user }) => {
         <>
         <div>
             <nav className='navbar-container'>
-                <h2>Lynn's Library Lane</h2>
+                <div>
+                    <h2>Lynn's Library Lane</h2>
+                </div>
                 <div className='nav-links'>
                     <Link to='/'>
                         <span className="material-icons">

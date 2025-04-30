@@ -1,9 +1,32 @@
+@font-face {
+    font-family: 'KG Broken Vessels';
+    src: url('../fonts/KGBrokenVesselsSketch.ttf');
+}
+
+@font-face {
+    font-family: 'KG Second Chances';
+    src: url('../fonts/KGSecondChancesSketch.ttf');
+}
+
 .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
     background-color: lightsteelblue;
+    border: none;
+    border-radius: 17px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 2rem;
+    box-shadow: 0 1px 4px rgb(0, 0, 0); /* optional for visibility */
+}
+
+.navbar-container h2 {
+    font-family: 'KG Second Chances'; 
+    font-size: 3rem;
+    font-weight: 110;
 }
 
 .nav-links a {

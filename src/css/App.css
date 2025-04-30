@@ -1,5 +1,16 @@
+@font-face {
+  font-family: 'KG I Like to Move';
+  src: url('../fonts/KGILikeToMoveIt.ttf');
+}
+
+@font-face {
+  font-family: 'KG Kindergarten';
+  src: url('../fonts/KGMissKindergarten.ttf');
+}
+
 body {
   background-color: darkslategray;
+  font-family: 'KG Kindergarten';
 }
 
 button {
@@ -21,3 +32,4 @@ button:hover {
     background-color: black;
     color: white;
 }
+
