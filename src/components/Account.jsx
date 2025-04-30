@@ -21,7 +21,7 @@ import '../css/account.css';
 const Account = ({ user, setUser, singleBook }) => {
     const [refresh, setRefresh] = useState(true);
 
-    const returnReservedBook = async () => {
+    const returnReservedBook = async (id) => {
         try {
             const response = await returnBook(id);
             setRefresh(!refresh);
@@ -29,7 +29,6 @@ const Account = ({ user, setUser, singleBook }) => {
             console.error('Error: Failed to return book.');
         }
     }
-
     useEffect(() => {
         const getAccountDetailsAPI = async () => {
             const response = await getAccountDetails();
@@ -37,7 +36,7 @@ const Account = ({ user, setUser, singleBook }) => {
             setUser(response);
         }
         getAccountDetailsAPI();
-    }, []);
+    }, [refresh]);
 
     return (
         <>
@@ -48,23 +47,28 @@ const Account = ({ user, setUser, singleBook }) => {
                     </h1>
                     <p>Name:&nbsp;{user.firstname}&nbsp;{user.lastname}</p>
                     <p>Email:&nbsp;{user.email}</p>
-                    <div>
+                    <div className='books-container'>
                         {
                            user &&  (user.reservations.map((book) => {
-                            const { id, title, coverimage } = book;
+                            const { id, title, coverimage, author } = book;
                             if (singleBook.availabe === false) return null;
                             return (
-                                <div key={id}>
+                                <div 
+                                    key={id}
+                                    className='book-card'>
                                     <h3>
                                         {title}
                                     </h3>
                                     <img 
+                                        className='book-image'
                                         src={coverimage}
                                         onError={(e) => {
                                             e.target.onError = null;
                                             e.target.src = fallbackImg;
                                         }}
                                     />
+                                    <br />
+                                    <p>{author}</p>
                                     <button onClick={() => returnReservedBook(id)}>
                                         Return Book
                                     </button>

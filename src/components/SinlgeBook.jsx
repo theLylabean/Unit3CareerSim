@@ -55,7 +55,7 @@ Step 4: ✅
                             <p>{singleBook.author}</p>
                             <p>{singleBook.description}</p>
                             <button onClick={() => navigate(-1)}>
-                                Go Back
+                                Return to Book Library
                             </button>
                             &nbsp;
                             {
@@ -66,7 +66,7 @@ Step 4: ✅
                                             handleCheckout();
                                         }}
                                     >
-                                        Checkout
+                                        Reserve Book
                                     </button>
                                 )
                             } 

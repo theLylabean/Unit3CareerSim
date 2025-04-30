@@ -1,3 +1,22 @@
 body {
   background-color: darkslategray;
 }
+
+button {
+  background-color: white;
+  color: black;
+  font-family: 'Century Gothic', AppleGothic;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 1.3rem;
+}
+  
+button:active {
+  transform-style: all 1s ease;
+  scale: 0.8;
+}
+
+button:hover {
+  cursor: pointer;
+}

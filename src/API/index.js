@@ -73,7 +73,7 @@ const reserveBook = async (id) => {
 
 const returnBook = async (id) => {
     try {
-        const token = localStorage.getItem('teoken');
+        const token = localStorage.getItem('token');
         const res = await fetch(`${baseUrl}/reservations/${id}`, {
             method: 'DELETE',
             headers: {

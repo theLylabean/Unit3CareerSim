@@ -21,8 +21,8 @@ const Navbar = ({ token, setToken, user }) => {
         <>
         <div>
             <nav className='navbar-container'>
+                <h2>Lynn's Library Lane</h2>
                 <div className='nav-links'>
-                    <h2>Lynn's Library Lane</h2>
                     <Link to='/'>
                         Home
                     </Link>

@@ -48,7 +48,7 @@ const Books = ({ books, setBooks, setSingleBook }) => {
             </div>
             <div className='books-container'>
                 {Array.isArray(books) && books.map((book) => {
-                    const { id, title, coverimage } = book;
+                    const { id, title, coverimage, author } = book;
                     if (!book || !book.id || !book.title) return null;
                     return (
                         <div 
@@ -65,6 +65,8 @@ const Books = ({ books, setBooks, setSingleBook }) => {
                                     e.target.src = fallbackImg;
                                 }}
                             />
+                            <br />
+                            <p>{author}</p>
                             <br />
                             <button onClick={() => handleClick(book)}>
                                 More Info
