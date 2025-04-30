@@ -49,7 +49,7 @@ const Account = ({ user, setUser, singleBook }) => {
                     <p>Email:&nbsp;{user.email}</p>
                     <div className='books-container'>
                         {
-                           user &&  (user.reservations.map((book) => {
+                           user &&  (user.reservations?.map((book) => {
                             const { id, title, coverimage, author } = book;
                             if (singleBook.availabe === false) return null;
                             return (

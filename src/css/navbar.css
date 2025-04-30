@@ -5,3 +5,37 @@
     padding: 1rem;
     background-color: lightsteelblue;
 }
+
+.nav-links a {
+    display: inline-block;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 1rem 1rem;
+    border-radius: 6px;
+    vertical-align: middle;
+}
+
+.nav-button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 1.01rem 1rem;
+    border-radius: 6px;
+    vertical-align: center;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.nav-button:hover,
+.nav-links a:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+.nav-links a:active {
+    transform: all 1s ease;
+    scale: 0.8;
+}

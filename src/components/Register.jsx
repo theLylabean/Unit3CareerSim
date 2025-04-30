@@ -38,8 +38,8 @@ const Register = ({ setUser, setToken }) => {
         e.preventDefault();
         setRegisterError(null);
 
-        const { firstName, lastName, email, password, confirmPassword } = registerUser;
-        if (!firstName || !lastName || !email || !password || !confirmPassword) {
+        const { firstname, lastname, email, password, confirmPassword } = registerUser;
+        if (!firstname || !lastname || !email || !password || !confirmPassword) {
             setRegisterError('Please fill in all fields.')
             return;
         }
@@ -49,7 +49,7 @@ const Register = ({ setUser, setToken }) => {
         }
 
         try {
-            const response = await getRegister(firstName, lastName, email, password, confirmPassword);
+            const response = await getRegister(firstname, lastname, email, password, confirmPassword);
             console.log(response);
             if (!response.token) {
                 setRegisterError(response.message);
@@ -80,10 +80,10 @@ const Register = ({ setUser, setToken }) => {
                     <label>First Name:</label>
                     &nbsp;
                     <input 
-                        className='firstName'
-                        name='firstName'
+                        className='firstname'
+                        name='firstname'
                         type='text'
-                        value={registerUser.firstName}
+                        value={registerUser.firstname}
                         onChange={e => setRegisterUser(prev => ({
                             ...prev,
                             [e.target.name]: e.target.value})
@@ -95,10 +95,10 @@ const Register = ({ setUser, setToken }) => {
                     <label>Last Name:</label>
                     &nbsp;
                     <input 
-                        className='lastName'
-                        name='lastName'
+                        className='lastname'
+                        name='lastname'
                         type='text'
-                        value={registerUser.lastName}
+                        value={registerUser.lastname}
                         onChange={e => setRegisterUser(prev => ({
                             ...prev,
                             [e.target.name]: e.target.value})

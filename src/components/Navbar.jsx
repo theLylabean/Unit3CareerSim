@@ -24,29 +24,47 @@ const Navbar = ({ token, setToken, user }) => {
                 <h2>Lynn's Library Lane</h2>
                 <div className='nav-links'>
                     <Link to='/'>
-                        Home
+                        <span className="material-icons">
+                            home
+                        </span>
                     </Link>
                     &nbsp;
                     <Link to='/books'>
-                        Book Library
+                        <span className="material-icons">
+                            local_library
+                        </span>
                     </Link>
                     &nbsp;
                     {
                         token ? (
                             <>
                                 <Link to='/account'>
-                                    Account Page
+                                    <span className="material-icons">
+                                        account_circle
+                                    </span>
                                 </Link>
                                 &nbsp;
-                                <button onClick={() => handleLogout()}>
-                                    Logout
+                                <button 
+                                    className='nav-button'
+                                    onClick={() => handleLogout()}>
+                                <span className="material-icons">
+                                    logout
+                                </span>
                                 </button>
                             </>
                         ) : (
                             <>
-                                <Link to='/login'>Login</Link>
+                                <Link to='/login'>
+                                <span className="material-icons">
+                                    login
+                                </span>
+                                </Link>
                                 &nbsp;
-                                <Link to='/register'>Register</Link>
+                                <Link to='/register'>
+                                <span className="material-icons">
+                                    person_add
+                                </span>
+                                </Link>
                             </>
                         )
                     }
