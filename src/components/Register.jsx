@@ -21,6 +21,7 @@ Step 5: ✅
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getRegister } from "../API/index.js";
+import '../css/register.css';
 
 const Register = ({ setUser, setToken }) => {
     const navigate = useNavigate();
@@ -68,7 +69,7 @@ const Register = ({ setUser, setToken }) => {
             setRegisterError('Failed to register. Please try again.', error.message);
         }
     }
-    
+
     return (
         <div>
             <h2>

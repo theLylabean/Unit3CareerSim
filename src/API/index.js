@@ -71,6 +71,19 @@ const reserveBook = async (id) => {
     }
 }
 
+const returnBook = async (id) => {
+    try {
+        const token = localStorage.getItem('teoken');
+        const res = await fetch(`${baseUrl}/reservations/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            }
+        });
+    } catch (error) {
+    }
+}
+
 const getAccountDetails = async () => {
     try {
         const token = localStorage.getItem('token');
@@ -93,4 +106,4 @@ const getAccountDetails = async () => {
     }
 }
 
-export { getBooks, getSingleBook, getLogin, getRegister, reserveBook, getAccountDetails }
+export { getBooks, getSingleBook, getLogin, getRegister, reserveBook, returnBook, getAccountDetails }

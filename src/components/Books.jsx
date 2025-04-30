@@ -15,10 +15,10 @@ Step 4: ✅
 
 import { useEffect } from 'react';
 import { getBooks } from '../API/index.js';
-import '../css/books.css';
-import fallbackImg from '../pictures/bookcover1.jpg';
 import { useNavigate } from 'react-router-dom';
 import Searchbar from './Searchbar.jsx';
+import fallbackImg from '../pictures/bookcover1.jpg';
+import '../css/books.css';
 
 const Books = ({ books, setBooks, setSingleBook }) => {
     const navigate = useNavigate();
@@ -37,8 +37,8 @@ const Books = ({ books, setBooks, setSingleBook }) => {
     }, [])
 
     return (
-        <div className='books-container'>
-            <h1>
+        <>
+            <h1 className='books-header-container'>
                 Book Library
             </h1>
             <div className='search-container'>
@@ -46,33 +46,34 @@ const Books = ({ books, setBooks, setSingleBook }) => {
                     books={books}
                 />
             </div>
-            <div 
-                className='book-card'>
-                    {Array.isArray(books) && books.map((book) => {
-                        const { id, title, coverimage } = book;
-                        if (!book || !book.id || !book.title) return null;
-                        return (
-                            <div key={id}>
-                                <h2>
-                                    {title}
-                                </h2>
-                                <img 
-                                    className='book-image'
-                                    src={coverimage}
-                                    onError={(e) => {
-                                        e.target.onError = null;
-                                        e.target.src = fallbackImg;
-                                    }}
-                                />
-                                <br />
-                                <button onClick={() => handleClick(book)}>
-                                    More Info
-                                </button>
-                            </div>
-                        )
-                    })}
+            <div className='books-container'>
+                {Array.isArray(books) && books.map((book) => {
+                    const { id, title, coverimage } = book;
+                    if (!book || !book.id || !book.title) return null;
+                    return (
+                        <div 
+                            key={id}
+                            className='book-card'>
+                            <h2>
+                                {title}
+                            </h2>
+                            <img 
+                                className='book-image'
+                                src={coverimage}
+                                onError={(e) => {
+                                    e.target.onError = null;
+                                    e.target.src = fallbackImg;
+                                }}
+                            />
+                            <br />
+                            <button onClick={() => handleClick(book)}>
+                                More Info
+                            </button>
+                        </div>
+                    )
+                })}
             </div>
-        </div>
+        </>
     )
 }
 

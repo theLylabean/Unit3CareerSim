@@ -1,3 +1,4 @@
+import '../css/home.css';
 import bookLogo from '../pictures/books.png'
 
 const Home = () => {

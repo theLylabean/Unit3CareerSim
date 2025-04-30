@@ -15,32 +15,31 @@ Step 4: ✅
     import { getSingleBook } from "../API/index.js";
     import { reserveBook } from "../API/index.js";
     import fallbackImg from '../pictures/bookcover1.jpg';
+    import '../css/singlebook.css';
     
     const  SingleBook = ({ singleBook, setSingleBook, token }) => {
-        // const [bookDetails, setBookDetails] = useState(null);
-        const [checkoutError, setCheckoutError] = useState(null);
+        const [successMessage, setSuccessMessage] = useState('');
         const {id} = useParams();
         const navigate = useNavigate();
     
         const handleCheckout = async () => {
-            setCheckoutError(null);
-    
             try {
                 const response = await reserveBook(id);
-                setSingleBook(response);
+                console.log('reserveBook response:', response);
+                setSuccessMessage('Book Reserved!');
             } catch (error) {
                 console.error(error.message);
             }
         } 
-    
+        
         useEffect(() => {
             const getBookDetailsAPI = async () => {
-                    const response = await getSingleBook(id);
-                    setSingleBook(response);
-             }
-        getBookDetailsAPI();
-    }, [id]);
-    
+                const response = await getSingleBook(id);
+                setSingleBook(response);
+            }
+            getBookDetailsAPI();
+        }, []);
+
         return (
             <>
                 <div className='bookDetails-container'>
@@ -53,23 +52,31 @@ Step 4: ✅
                                     e.target.src = fallbackImg;
                                 }} 
                             />
-                                <p>{singleBook.author}</p>
-                                <p>{singleBook.description}</p>
-                                {
-                                    token && singleBook.available ? (
-                                        <button onClick={() => handleCheckout(bookId)}>
-                                            Checkout
-                                        </button>
-                                    ) : (
-                                        <>
-                                            <p className='checkout-unavailable'>This book is not available to checkout right now.</p>
-                                            <button onClick={() => navigate(-1)}>
-                                                Go Back
-                                            </button>
-                                        </>
-                                    )
-                                }
-                            </div>
+                            <p>{singleBook.author}</p>
+                            <p>{singleBook.description}</p>
+                            <button onClick={() => navigate(-1)}>
+                                Go Back
+                            </button>
+                            &nbsp;
+                            {
+                                token && singleBook.available && (
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            handleCheckout();
+                                        }}
+                                    >
+                                        Checkout
+                                    </button>
+                                )
+                            } 
+                            <br />
+                            {
+                                successMessage && (
+                                    <p className='checkout-unavailable'>Success</p>
+                                )
+                            }
+                    </div>
                 </div>
             </>
         )

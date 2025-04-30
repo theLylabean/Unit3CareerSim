@@ -7,8 +7,8 @@ Step 3: ✅
     -use token to authenticate user and render only what an authorized use can see (account, and logout). unauthorized users should see (home, book library, login, register).
 */
 
-import { Link, useNavigate } from "react-router-dom"
-
+import { Link, useNavigate } from "react-router-dom";
+import '../css/navbar.css';
 
 const Navbar = ({ token, setToken, user }) => {
     const navigate = useNavigate();
@@ -20,9 +20,9 @@ const Navbar = ({ token, setToken, user }) => {
     return (
         <>
         <div>
-            <h2>Lynn's Library Lane</h2>
             <nav className='navbar-container'>
                 <div className='nav-links'>
+                    <h2>Lynn's Library Lane</h2>
                     <Link to='/'>
                         Home
                     </Link>

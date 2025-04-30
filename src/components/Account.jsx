@@ -5,19 +5,30 @@ Step 2: ✅
     -setup function outline. don't forget to export it to the app.jsx file.
 Step 3: ✅
     -create the return for what info you want to show. the api has options for first name, last name, email, id, and an array of the books (objects) you've reserved.
-Step 4: 
+Step 4: ✅
     -make sure to put the token in the api call to authenticate the user.
-Step 5: 
+Step 5: ✅
     Conditionally render a message for users that prompts them to log in or create an account. Don't auto route this time.
 */
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import { getAccountDetails } from "../API/index.js";
+import { returnBook } from '../API/index.js';
 import fallbackImg from '../pictures/bookcover1.jpg';
+import '../css/account.css';
 
 const Account = ({ user, setUser, singleBook }) => {
-    // const navigate = useNavigate();
+    const [refresh, setRefresh] = useState(true);
+
+    const returnReservedBook = async () => {
+        try {
+            const response = await returnBook(id);
+            setRefresh(!refresh);
+    } catch (error) {
+            console.error('Error: Failed to return book.');
+        }
+    }
 
     useEffect(() => {
         const getAccountDetailsAPI = async () => {
@@ -54,6 +65,9 @@ const Account = ({ user, setUser, singleBook }) => {
                                             e.target.src = fallbackImg;
                                         }}
                                     />
+                                    <button onClick={() => returnReservedBook(id)}>
+                                        Return Book
+                                    </button>
                                 </div>
                             )
                            }))

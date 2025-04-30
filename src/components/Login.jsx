@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getLogin } from "../API/index.js";
+import '../css/login.css';
 
 const Login = ({ setToken, setUser }) => {
     const [loginError, setLoginError] = useState(null);

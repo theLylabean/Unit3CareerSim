@@ -7,6 +7,7 @@ import SingleBook from './components/SinlgeBook.jsx';
 import Register from './components/Register.jsx';
 import Login from './components/Login.jsx';
 import Account from './components/Account.jsx';
+import './css/App.css';
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
             <SingleBook 
               singleBook={singleBook}
               setSingleBook={setSingleBook}
+              token={token}
             />
           }
         />
