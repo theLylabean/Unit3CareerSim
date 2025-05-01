@@ -29,6 +29,7 @@ const Searchbar = ({ books }) => {
                 <label>
                     Search:&nbsp;
                 <input 
+                    className='search-input'
                     placeholder='search by title or author'
                     type='text'
                     id='search'
@@ -48,6 +49,7 @@ const Searchbar = ({ books }) => {
                     }}
                     />
                 </label>
+                <br />
                 {
                     searchInput.length > 0 && searchResults.length > 0 && (
                         <ul ref={dropdownRef} className='dropdown'>

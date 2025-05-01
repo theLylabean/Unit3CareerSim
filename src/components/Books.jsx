@@ -65,9 +65,7 @@ const Books = ({ books, setBooks, setSingleBook }) => {
                                     e.target.src = fallbackImg;
                                 }}
                             />
-                            <br />
                             <p>{author}</p>
-                            <br />
                             <button onClick={() => handleClick(book)}>
                                 More Info
                             </button>

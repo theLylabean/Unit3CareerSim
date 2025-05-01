@@ -12,7 +12,7 @@ label {
 
 .books-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     text-align: center;
     margin: 2rem auto;
 }
@@ -27,11 +27,11 @@ label {
     margin: .25rem;
     padding-bottom: .5rem;
     background-color: teal;
-    box-shadow: 0 4px white;
+    box-shadow: 2px 2px 3px 0 aquamarine;
     border: 2px solid black;
-    border: none;
-    border-radius: 17px;
-    max-width: 350px;
+    /* border-radius: 17px; */
+    max-width: 425px;
+    height: auto;
 }
 
 .book-image {

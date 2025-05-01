@@ -8,6 +8,21 @@
   src: url('../fonts/KGMissKindergarten.ttf');
 }
 
+@font-face {
+  font-family: 'Color Tube';
+  src: url('../fonts/ColorTubePro.otf');
+}
+
+@font-face {
+  font-family: 'KG Broken Vessels';
+  src: url('../fonts/KGBrokenVesselsSketch.ttf');
+}
+
+@font-face {
+  font-family: 'KG Second Chances';
+  src: url('../fonts/KGSecondChancesSketch.ttf');
+}
+
 body {
   background-color: darkslategray;
   font-family: 'KG Kindergarten';
@@ -33,3 +48,6 @@ button:hover {
     color: white;
 }
 
+input {
+  
+}

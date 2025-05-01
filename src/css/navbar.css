@@ -1,12 +1,4 @@
-@font-face {
-    font-family: 'KG Broken Vessels';
-    src: url('../fonts/KGBrokenVesselsSketch.ttf');
-}
 
-@font-face {
-    font-family: 'KG Second Chances';
-    src: url('../fonts/KGSecondChancesSketch.ttf');
-}
 
 .navbar-container {
     display: flex;
