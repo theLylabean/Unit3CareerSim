@@ -19,7 +19,6 @@ const Navbar = ({ token, setToken, user }) => {
     }
     return (
         <>
-        <div>
             <nav className='navbar-container'>
                 <div>
                     <h2>Lynn's Library Lane</h2>
@@ -72,7 +71,6 @@ const Navbar = ({ token, setToken, user }) => {
                     }
                 </div>
             </nav>
-        </div>
         </>
     )
 }

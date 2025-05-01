@@ -14,8 +14,8 @@
 }
 
 @font-face {
-  font-family: 'KG Broken Vessels';
-  src: url('../fonts/KGBrokenVesselsSketch.ttf');
+  font-family: 'KG Shake It Off';
+  src: url('../fonts/KGShakeitOffPopped.ttf');
 }
 
 @font-face {
@@ -29,11 +29,12 @@ body {
 }
 
 button {
-  background-color: white;
+  background-color: aliceblue;
   color: black;
   font-family: 'Century Gothic', AppleGothic;
+  font-size: 0.8rem;
   border: none;
-  padding: 0.75rem 2rem;
+  padding: 0.5rem;
   border-radius: 6px;
 }
   

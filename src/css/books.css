@@ -19,7 +19,9 @@ label {
 
 .books-header-container {
     text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'KG Shake It Off';
+    font-size: 3rem;
+    color: aliceblue;
 }
 
 .book-card {
@@ -29,7 +31,6 @@ label {
     background-color: teal;
     box-shadow: 2px 2px 3px 0 aquamarine;
     border: 2px solid black;
-    /* border-radius: 17px; */
     max-width: 425px;
     height: auto;
 }
