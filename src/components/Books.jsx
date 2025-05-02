@@ -20,7 +20,7 @@ import Searchbar from './Searchbar.jsx';
 import fallbackImg from '../pictures/bookcover1.jpg';
 import '../css/books.css';
 
-const Books = ({ books, setBooks, setSingleBook }) => {
+const Books = ({ books, setBooks, setSingleBook, searchTerm, setSearchTerm, searchResults, setSearchResults, refresh, setRefresh }) => {
     const navigate = useNavigate();
 
     const handleClick = (book) => {
@@ -34,20 +34,54 @@ const Books = ({ books, setBooks, setSingleBook }) => {
                 setBooks(response);
             }
         getBooksAPI();
-    }, [])
+    }, [refresh])
 
     return (
         <>
-            <h1 className='books-header-container'>
-                Book Library
-            </h1>
-            <div className='search-container'>
+            <div className='books-header-container'>
+                <h1>
+                    Book Library
+                </h1>
                 <Searchbar 
                     books={books}
+                    setBooks={setBooks}
+                    searchResults={searchResults}
+                    setSearchResults={setSearchResults}
+                    searchTerm={searchTerm}
+                    setSearchTerm={setSearchTerm}
+                    refrehs={refresh}
+                    setRefresh={setRefresh}
                 />
             </div>
             <div className='books-container'>
-                {Array.isArray(books) && books.map((book) => {
+                {
+                    searchResults.length > 0 ? (
+                        searchResults.map((book) => {
+                        const { id, title, coverimage, author } = book;
+                    if (!book || !book.id || !book.title) return null;
+                    return (
+                        <div 
+                            key={id}
+                            className='book-card'>
+                            <h2>
+                                {title}
+                            </h2>
+                            <img 
+                                className='book-image'
+                                src={coverimage}
+                                onError={(e) => {
+                                    e.target.onError = null;
+                                    e.target.src = fallbackImg;
+                                }}
+                            />
+                            <p>{author}</p>
+                            <button onClick={() => handleClick(book)}>
+                                More Info
+                            </button>
+                        </div>
+                    )}) 
+                    ) : (
+                    Array.isArray(books) && books.map((book) => {
                     const { id, title, coverimage, author } = book;
                     if (!book || !book.id || !book.title) return null;
                     return (
@@ -71,7 +105,7 @@ const Books = ({ books, setBooks, setSingleBook }) => {
                             </button>
                         </div>
                     )
-                })}
+                }))}
             </div>
         </>
     )

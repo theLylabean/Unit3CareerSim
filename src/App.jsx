@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home.jsx';
 import Books from './components/Books.jsx';
@@ -14,6 +14,8 @@ function App() {
   const [books, setBooks] = useState([]);
   const [token, setToken] = useState(localStorage.getItem('token') || null);
   const [singleBook, setSingleBook] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState(books);
   const [user, setUser] = useState({
     firstName: '',
     lastName: '',
@@ -43,6 +45,10 @@ function App() {
               setBooks={setBooks}
               singleBook={singleBook}
               setSingleBook={setSingleBook}
+              searchResults={searchResults}
+              setSearchResults={setSearchResults}
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
             />
           }
         />

@@ -1,0 +1,16 @@
+.accountPage-container {
+    text-align: center;
+}
+
+.accountPage-container h1 {
+    font-family: 'Hello Dot Bot';
+    font-size: 3rem;
+}
+
+.personal-info {
+    font-size: 2rem;
+    background-color: aliceblue;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 2px 2px 10px 0 black;
+}

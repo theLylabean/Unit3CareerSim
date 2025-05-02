@@ -23,19 +23,31 @@
   src: url('../fonts/KGSecondChancesSketch.ttf');
 }
 
+@font-face {
+  font-family: 'KG Always Good';
+  src: url('../fonts/KGAlwaysAGoodTime.ttf');
+}
+
+@font-face {
+  font-family: 'Hello Dot Bot';
+  src: url('../fonts/HelloDotBot.ttf');
+}
+
 body {
-  background-color: darkslategray;
+  background: linear-gradient(to bottom right, #ffffff, #a2d0fe);;
   font-family: 'KG Kindergarten';
 }
 
 button {
   background-color: aliceblue;
   color: black;
-  font-family: 'Century Gothic', AppleGothic;
+  font-family: 'KG Kindergarten';
   font-size: 0.8rem;
+  font-weight: bold;
   border: none;
-  padding: 0.5rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 6px;
+  
 }
   
 button:active {
@@ -45,10 +57,6 @@ button:active {
 
 button:hover {
   cursor: pointer;
-    background-color: black;
-    color: white;
-}
-
-input {
-  
+  background-color: #315f7b;
+  color: aliceblue;
 }

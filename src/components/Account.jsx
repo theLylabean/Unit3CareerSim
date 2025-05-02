@@ -41,45 +41,45 @@ const Account = ({ user, setUser, singleBook }) => {
     return (
         <>
             <div className='accountPage-container'>
+                <h1>
+                    Welcome, {user?.firstname}!
+                </h1>
                 <div className='personal-info'>
-                    <h1>
-                        Welcome, {user?.firstname}!
-                    </h1>
-                    <p>Name:&nbsp;{user.firstname}&nbsp;{user.lastname}</p>
-                    <p>Email:&nbsp;{user.email}</p>
-                    <div className='books-container'>
-                        {
-                           user &&  (user.reservations?.map((book) => {
-                            const { id, title, coverimage, author } = book;
-                            if (singleBook.availabe === false) return null;
-                            return (
-                                <div 
-                                    key={id}
-                                    className='book-card'>
-                                    <h3>
-                                        {title}
-                                    </h3>
-                                    <img 
-                                        className='book-image'
-                                        src={coverimage}
-                                        onError={(e) => {
-                                            e.target.onError = null;
-                                            e.target.src = fallbackImg;
-                                        }}
-                                    />
-                                    <br />
-                                    <p>{author}</p>
-                                    <button onClick={() => returnReservedBook(id)}>
-                                        Return Book
-                                    </button>
-                                </div>
-                            )
-                           }))
-                        }
-
-                    </div>
+                    <p><u>Name:</u>&nbsp;{user.firstname}&nbsp;{user.lastname}</p>
+                    <p><u>Email:</u>&nbsp;{user.email}</p>
                 </div>
-            </div>
+                <div className='books-container'>
+                    {
+                        user &&  (user.reservations?.map((book) => {
+                        const { id, title, coverimage, author } = book;
+                        if (singleBook.availabe === false) return null;
+                        return (
+                            <div 
+                                key={id}
+                                className='book-card'>
+                                <h3>
+                                    {title}
+                                </h3>
+                                <img 
+                                    className='book-image'
+                                    src={coverimage}
+                                    onError={(e) => {
+                                        e.target.onError = null;
+                                        e.target.src = fallbackImg;
+                                    }}
+                                />
+                                <br />
+                                <p>{author}</p>
+                                <button onClick={() => returnReservedBook(id)}>
+                                    Return Book
+                                </button>
+                            </div>
+                        )
+                        }))
+                    }
+
+                </div>
+                </div>
         </>
     )
 }

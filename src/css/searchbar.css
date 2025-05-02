@@ -1,31 +1,24 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container label {
+    color: aliceblue;
+    display: inline-flex;
+    font-size: 2.5rem;
+    vertical-align: top;
+}
+
 .search-input {
-    margin-bottom: 1rem;
-    padding: 1rem;
+    padding: 0.5rem;
     border: none;
     border-radius: 17px;
     font-size: 1rem;
-    font-family: 'Color Tube';
+    font-family: 'KG Kindergarten';
     width: 400px;
     text-align: center;
-    vertical-align: bottom;
-}
-
-.dropdown {
-    position: sticky;
-    /* top: 30%; pushes it below the input */
-    /* left: 10%; */
-    /* right: 35%; */
-    color: black;
-    background-color: pink;
-    border: 1px solid #ccc;
-    z-index: 10;
-    width: 100%;
-    max-width: 300px;
-    max-height: 200px;
-    overflow-y: auto;
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #4682b4;
+    color: aliceblue;
 }
