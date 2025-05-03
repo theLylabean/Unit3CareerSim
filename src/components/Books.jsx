@@ -20,12 +20,15 @@ import Searchbar from './Searchbar.jsx';
 import fallbackImg from '../pictures/bookcover1.jpg';
 import '../css/books.css';
 
-const Books = ({ books, setBooks, setSingleBook, searchTerm, setSearchTerm, searchResults, setSearchResults, refresh, setRefresh }) => {
+const Books = ({ books, setBooks, setSingleBook, searchTerm, setSearchTerm, searchResults, setSearchResults }) => {
     const navigate = useNavigate();
 
     const handleClick = (book) => {
         setSingleBook(book);
+        setSearchTerm('');
+        setSearchResults([]);
         navigate(`/books/${book.id}`);
+        
     }
 
     useEffect(() => {
@@ -34,78 +37,78 @@ const Books = ({ books, setBooks, setSingleBook, searchTerm, setSearchTerm, sear
                 setBooks(response);
             }
         getBooksAPI();
-    }, [refresh])
+    }, [])
 
     return (
         <>
             <div className='books-header-container'>
-                <h1>
-                    Book Library
-                </h1>
-                <Searchbar 
-                    books={books}
-                    setBooks={setBooks}
-                    searchResults={searchResults}
-                    setSearchResults={setSearchResults}
-                    searchTerm={searchTerm}
-                    setSearchTerm={setSearchTerm}
-                    refrehs={refresh}
-                    setRefresh={setRefresh}
-                />
-            </div>
-            <div className='books-container'>
-                {
-                    searchResults.length > 0 ? (
-                        searchResults.map((book) => {
+                    <h1>
+                        Book Library
+                    </h1>
+                    <Searchbar 
+                        books={books}
+                        setBooks={setBooks}
+                        searchResults={searchResults}
+                        setSearchResults={setSearchResults}
+                        searchTerm={searchTerm}
+                        setSearchTerm={setSearchTerm}
+                    />
+                </div>
+                <div className='books-page'>
+                    <div className='books-container'>
+                    {
+                        searchResults.length > 0 ? (
+                            searchResults.map((book) => {
+                            const { id, title, coverimage, author } = book;
+                        if (!book || !book.id || !book.title) return null;
+                        return (
+                            <div 
+                                key={id}
+                                className='book-card'>
+                                <h3>
+                                    {title}
+                                </h3>
+                                <img 
+                                    className='book-image'
+                                    src={coverimage}
+                                    onError={(e) => {
+                                        e.target.onError = null;
+                                        e.target.src = fallbackImg;
+                                    }}
+                                />
+                                <p>{author}</p>
+                                <button onClick={() => handleClick(book)}>
+                                    More Info
+                                </button>
+                            </div>
+                        )}) 
+                        ) : (
+                        Array.isArray(books) && books.map((book) => {
                         const { id, title, coverimage, author } = book;
-                    if (!book || !book.id || !book.title) return null;
-                    return (
-                        <div 
-                            key={id}
-                            className='book-card'>
-                            <h2>
-                                {title}
-                            </h2>
-                            <img 
-                                className='book-image'
-                                src={coverimage}
-                                onError={(e) => {
-                                    e.target.onError = null;
-                                    e.target.src = fallbackImg;
-                                }}
-                            />
-                            <p>{author}</p>
-                            <button onClick={() => handleClick(book)}>
-                                More Info
-                            </button>
-                        </div>
-                    )}) 
-                    ) : (
-                    Array.isArray(books) && books.map((book) => {
-                    const { id, title, coverimage, author } = book;
-                    if (!book || !book.id || !book.title) return null;
-                    return (
-                        <div 
-                            key={id}
-                            className='book-card'>
-                            <h2>
-                                {title}
-                            </h2>
-                            <img 
-                                className='book-image'
-                                src={coverimage}
-                                onError={(e) => {
-                                    e.target.onError = null;
-                                    e.target.src = fallbackImg;
-                                }}
-                            />
-                            <p>{author}</p>
-                            <button onClick={() => handleClick(book)}>
-                                More Info
-                            </button>
-                        </div>
-                    )
-                }))}
+                        if (!book || !book.id || !book.title) return null;
+                        return (
+                            <div 
+                                key={id}
+                                className='book-card'>
+                                <h3>
+                                    {title}
+                                </h3>
+                                <img 
+                                    className='book-image'
+                                    src={coverimage}
+                                    onError={(e) => {
+                                        e.target.onError = null;
+                                        e.target.src = fallbackImg;
+                                    }}
+                                />
+                                <p>{author}</p>
+                                <button onClick={() => handleClick(book)}>
+                                    More Info
+                                </button>
+                            </div>
+                        )
+                    }))}
+                </div>
             </div>
         </>
     )

@@ -71,100 +71,104 @@ const Register = ({ setUser, setToken }) => {
     }
 
     return (
-        <div>
-            <h2>
-                Register
-            </h2>
-            <form onSubmit={handleRegisterSubmit}>
-                <div>
-                    <label>First Name:</label>
-                    &nbsp;
-                    <input 
-                        className='firstname'
-                        name='firstname'
-                        type='text'
-                        value={registerUser.firstname}
-                        onChange={e => setRegisterUser(prev => ({
-                            ...prev,
-                            [e.target.name]: e.target.value})
-                        )}
-                    />
+        <>
+            <div className='register-container'>
+                <div className='register-header-container'>
+                    <h2>
+                        Register
+                    </h2>
+                    <form onSubmit={handleRegisterSubmit}>
+                        <div className='register-firstName'>
+                            <label>First Name:</label>
+                            &nbsp;
+                            <input 
+                                className='firstname'
+                                name='firstname'
+                                type='text'
+                                value={registerUser.firstname}
+                                onChange={e => setRegisterUser(prev => ({
+                                    ...prev,
+                                    [e.target.name]: e.target.value})
+                                )}
+                            />
+                        </div>
+                        <br />
+                        <div className='register-lastName'>
+                            <label>Last Name:</label>
+                            &nbsp;
+                            <input 
+                                className='lastname'
+                                name='lastname'
+                                type='text'
+                                value={registerUser.lastname}
+                                onChange={e => setRegisterUser(prev => ({
+                                    ...prev,
+                                    [e.target.name]: e.target.value})
+                                )}
+                            />
+                        </div>
+                        <br />
+                        <div className='register-username'>
+                            <label>Username/Email:</label>
+                            &nbsp;
+                            <input 
+                                className='form-username'
+                                name='email'
+                                type='text'
+                                required
+                                value={registerUser.email}
+                                onChange={e => setRegisterUser(prev => ({
+                                    ...prev,
+                                    [e.target.name]: e.target.value})
+                                )}
+                            />
+                        </div>
+                        <br />
+                        <div className='register-password'>
+                            <label>Password:</label>
+                            &nbsp;
+                            <input 
+                                className='formPassword'
+                                name='password'
+                                type='password'
+                                required
+                                minLength={8}
+                                value={registerUser.password}
+                                onChange={e => setRegisterUser(prev => ({
+                                    ...prev,
+                                    [e.target.name]: e.target.value})
+                                )}
+                            />
+                        </div>
+                        <br />
+                        <div className='register-password'>
+                            <label>Confirm Password:</label>
+                            &nbsp;
+                            <input 
+                                className='formPassword'
+                                name='confirmPassword'
+                                type='password'
+                                required
+                                minLength={8}
+                                value={registerUser.confirmPassword}
+                                onChange={e => setRegisterUser(prev => ({
+                                    ...prev,
+                                    [e.target.name]: e.target.value})
+                                )}
+                            />
+                        </div>
+                        {registerError && <p>{registerError}</p>}
+                        <br />
+                        <button
+                            className='submitButton'
+                            type='submit'
+                            >
+                            Register
+                        </button>
+                    </form>
                 </div>
-                <br />
-                <div>
-                    <label>Last Name:</label>
-                    &nbsp;
-                    <input 
-                        className='lastname'
-                        name='lastname'
-                        type='text'
-                        value={registerUser.lastname}
-                        onChange={e => setRegisterUser(prev => ({
-                            ...prev,
-                            [e.target.name]: e.target.value})
-                        )}
-                    />
-                </div>
-                <br />
-                <div>
-                    <label>Username/Email:</label>
-                    &nbsp;
-                    <input 
-                        className='form-username'
-                        name='email'
-                        type='text'
-                        required
-                        value={registerUser.email}
-                        onChange={e => setRegisterUser(prev => ({
-                            ...prev,
-                            [e.target.name]: e.target.value})
-                        )}
-                    />
-                </div>
-                <br />
-                <div>
-                    <label>Password:</label>
-                    &nbsp;
-                    <input 
-                        className='formPassword'
-                        name='password'
-                        type='password'
-                        required
-                        minLength={8}
-                        value={registerUser.password}
-                        onChange={e => setRegisterUser(prev => ({
-                            ...prev,
-                            [e.target.name]: e.target.value})
-                        )}
-                    />
-                </div>
-                <br />
-                <div>
-                    <label>Confirm Password:</label>
-                    &nbsp;
-                    <input 
-                        className='formPassword'
-                        name='confirmPassword'
-                        type='password'
-                        required
-                        minLength={8}
-                        value={registerUser.confirmPassword}
-                        onChange={e => setRegisterUser(prev => ({
-                            ...prev,
-                            [e.target.name]: e.target.value})
-                        )}
-                    />
-                </div>
-                {registerError && <p>{registerError}</p>}
-                <br />
-                <button
-                    className='submitButton'
-                    type='submit'
-                    >
-                    Register
-                </button>
-            </form>
-        </div>
+            </div>
+        </>
     )
 }
 

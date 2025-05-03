@@ -19,12 +19,10 @@ import fallbackImg from '../pictures/bookcover1.jpg';
 import '../css/account.css';
 
 const Account = ({ user, setUser, singleBook }) => {
-    const [refresh, setRefresh] = useState(true);
 
     const returnReservedBook = async (id) => {
         try {
             const response = await returnBook(id);
-            setRefresh(!refresh);
     } catch (error) {
             console.error('Error: Failed to return book.');
         }
@@ -36,7 +34,7 @@ const Account = ({ user, setUser, singleBook }) => {
             setUser(response);
         }
         getAccountDetailsAPI();
-    }, [refresh]);
+    }, []);
 
     return (
         <>
@@ -48,38 +46,40 @@ const Account = ({ user, setUser, singleBook }) => {
                     <p><u>Name:</u>&nbsp;{user.firstname}&nbsp;{user.lastname}</p>
                     <p><u>Email:</u>&nbsp;{user.email}</p>
                 </div>
-                <div className='books-container'>
-                    {
-                        user &&  (user.reservations?.map((book) => {
-                        const { id, title, coverimage, author } = book;
-                        if (singleBook.availabe === false) return null;
-                        return (
-                            <div 
-                                key={id}
-                                className='book-card'>
-                                <h3>
-                                    {title}
-                                </h3>
-                                <img 
-                                    className='book-image'
-                                    src={coverimage}
-                                    onError={(e) => {
-                                        e.target.onError = null;
-                                        e.target.src = fallbackImg;
-                                    }}
-                                />
-                                <br />
-                                <p>{author}</p>
-                                <button onClick={() => returnReservedBook(id)}>
-                                    Return Book
-                                </button>
-                            </div>
-                        )
-                        }))
-                    }
+                <div class='books-page'>
+                    <div className='books-container'>
+                        {
+                            user &&  (user.reservations?.map((book) => {
+                            const { id, title, coverimage, author } = book;
+                            if (singleBook.availabe === false) return null;
+                            return (
+                                <div 
+                                    key={id}
+                                    className='book-card'>
+                                    <h3>
+                                        {title}
+                                    </h3>
+                                    <img 
+                                        className='book-image'
+                                        src={coverimage}
+                                        onError={(e) => {
+                                            e.target.onError = null;
+                                            e.target.src = fallbackImg;
+                                        }}
+                                    />
+                                    <br />
+                                    <p>{author}</p>
+                                    <button onClick={() => returnReservedBook(id)}>
+                                        Return Book
+                                    </button>
+                                </div>
+                            )
+                            }))
+                        }
 
+                    </div>
                 </div>
-                </div>
+            </div>
         </>
     )
 }

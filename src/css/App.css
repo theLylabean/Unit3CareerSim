@@ -33,9 +33,19 @@
   src: url('../fonts/HelloDotBot.ttf');
 }
 
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0 ;
+}
+
 body {
   background: linear-gradient(to bottom right, #ffffff, #a2d0fe);;
   font-family: 'KG Kindergarten';
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 button {
@@ -59,4 +69,15 @@ button:hover {
   cursor: pointer;
   background-color: #315f7b;
   color: aliceblue;
+}
+
+.submitButton {
+  background-color: #4682b4;
+  color: aliceblue;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }

@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import '../css/searchbar.css';
 
-const Searchbar = ({ books, setBooks, searchTerm, setSearchTerm, setSearchResults, refrehs, setRefresh }) => {
+const Searchbar = ({ books, setBooks, searchTerm, setSearchTerm, setSearchResults }) => {
     
 
     const handleSearch = (e) => {
@@ -21,7 +21,6 @@ const Searchbar = ({ books, setBooks, searchTerm, setSearchTerm, setSearchResult
                 console.log('strings', filteredBooks)
             } else {
                 setBooks(books)
-                setRefresh(!refresh)
                 console.log('not stings', books)
             }
         };

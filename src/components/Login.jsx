@@ -30,47 +30,51 @@ const Login = ({ setToken, setUser }) => {
     } 
       
     return (
-        <div>
-            <h2>
-                Login
-            </h2>
-            <form onSubmit={handleLoginSubmit}>
-                <div>
-                    <label>Username</label>
-                    &nbsp;
-                    <input 
-                        className='form-username'
-                        type='text'
-                        required
-                        name='email'
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
-                    />
+        <>
+            <div className='login-container'>
+                <div className='login-header-container'>
+                    <h2>
+                        Login
+                    </h2>
+                    <form onSubmit={handleLoginSubmit}>
+                        <div className='login-username'>
+                            <label>Username:</label>
+                            &nbsp;
+                            <input 
+                                className='form-username'
+                                type='text'
+                                required
+                                name='email'
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <br />
+                        <div className='login-password'>
+                            <label>Password:</label>
+                            &nbsp;
+                            <input 
+                                className='form-password'
+                                type='password'
+                                required
+                                minLength={7}
+                                name='password'
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
+                            />
+                        </div>
+                        {loginError && <p>{loginError}</p>}
+                        <br />
+                        <button
+                            className='submitButton'
+                            type='submit'
+                            >
+                            Login
+                        </button>
+                    </form>
                 </div>
-                <br />
-                <div>
-                    <label>Password</label>
-                    &nbsp;
-                    <input 
-                        className='form-password'
-                        type='password'
-                        required
-                        minLength={7}
-                        name='password'
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
-                    />
-                </div>
-                {loginError && <p>{loginError}</p>}
-                <br />
-                <button
-                    className='submitButton'
-                    type='submit'
-                    >
-                    Login
-                </button>
-            </form>
-        </div>
+            </div>
+        </>
     )
 }
 

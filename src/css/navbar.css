@@ -10,7 +10,9 @@
     top: 0;
     z-index: 1000;
     padding: 1rem 2rem;
-    box-shadow: 2px 2px 4px 0 rgb(0, 0, 0);
+    box-shadow: 0 4px 3px 0 rgb(0, 0, 0);
+    max-height: 75px;
+    max-width: 1700px;
 }
 
 .navbar-container h2 {
@@ -21,7 +23,7 @@
 
 .nav-links a {
     display: inline-block;
-    background-color: white;
+    background-color: aliceblue;
     color: black;
     border: none;
     padding: 1rem 1rem;
@@ -48,6 +50,7 @@
     color: aliceblue;
 }
 
+.nav-button:active,
 .nav-links a:active {
     transform: all 1s ease;
     scale: 0.8;

@@ -9,13 +9,12 @@ import Login from './components/Login.jsx';
 import Account from './components/Account.jsx';
 import './css/App.css';
 
-
 function App() {
   const [books, setBooks] = useState([]);
   const [token, setToken] = useState(localStorage.getItem('token') || null);
   const [singleBook, setSingleBook] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState(books);
+  const [searchResults, setSearchResults] = useState([]);
   const [user, setUser] = useState({
     firstName: '',
     lastName: '',
@@ -29,6 +28,8 @@ function App() {
       <Navbar 
         token={token}
         setToken={setToken}
+        setSearchResults={setSearchResults}
+        setSearchTerm={setSearchTerm}
       />
       <Routes>
         <Route 

@@ -10,13 +10,21 @@ Step 3: ✅
 import { Link, useNavigate } from "react-router-dom";
 import '../css/navbar.css';
 
-const Navbar = ({ token, setToken, user }) => {
+const Navbar = ({ token, setToken, setSearchResults, setSearchTerm }) => {
     const navigate = useNavigate();
     const handleLogout = () => {
         setToken(null);
         localStorage.removeItem('token');
+        setSearchResults([]);
+        setSearchTerm('');
         navigate('/');
     }
+
+    const handleClick = () => {
+        setSearchResults([]);
+        setSearchTerm('');
+    }
+
     return (
         <>
             <nav className='navbar-container'>
@@ -39,7 +47,10 @@ const Navbar = ({ token, setToken, user }) => {
                     {
                         token ? (
                             <>
-                                <Link to='/account'>
+                                <Link 
+                                    to='/account'
+                                    onClick={handleClick}
+                                >
                                     <span className="material-icons">
                                         account_circle
                                     </span>

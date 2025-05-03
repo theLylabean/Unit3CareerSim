@@ -1,0 +1,33 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.login-header-container {
+    background-color: aliceblue;
+    padding: 1rem;
+    box-shadow: 4px 4px 3px 0 black;
+    width: 400px;
+    max-width: 800px;
+}
+
+.login-header-container h2 {
+    font-size: 2rem;
+    text-decoration: underline;
+}
+
+.login-username input,
+.login-password input {
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 17px;
+    font-size: 1rem;
+    font-family: 'KG Kindergarten';
+    width: 300px;
+    text-align: center;
+    background-color: aliceblue;
+    color: #4682b4;
+}

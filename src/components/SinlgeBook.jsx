@@ -44,9 +44,9 @@ Step 4: ✅
             <>
                 <div className='book-details-container'>
                     <div key={singleBook.id}>
-                        <h1>{singleBook.title}</h1>
+                        <h2>{singleBook.title}</h2>
                             <img 
-                                
+                                className="single-book-img"
                                 src={singleBook.coverimage} 
                                 onError={(e) => {
                                     e.target.onError = null;
@@ -55,13 +55,16 @@ Step 4: ✅
                             />
                             <p>{singleBook.author}</p>
                             <p className='description'>{singleBook.description}</p>
-                            <button onClick={() => navigate(-1)}>
+                            <button 
+                                className='back-button'
+                                onClick={() => navigate(-1)}>
                                 Return to Book Library
                             </button>
                             &nbsp;
                             {
                                 token && singleBook.available && (
                                     <button
+                                        className='reserve-button'
                                         type="button"
                                         onClick={() => {
                                             handleCheckout();
