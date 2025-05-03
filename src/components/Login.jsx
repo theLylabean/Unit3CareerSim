@@ -29,7 +29,6 @@ const Login = ({ setToken, setUser }) => {
             setLoginError('');
             try {
                 const response = await getLogin(email, password);
-                console.log(response);
                 if (response.token) {
                     localStorage.setItem('token', response.token);
                     setToken(response.token);

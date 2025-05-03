@@ -50,7 +50,6 @@ const Register = ({ setUser, setToken }) => {
 
         try {
             const response = await getRegister(firstname, lastname, email, password, confirmPassword);
-            console.log(response);
             if (!response.token) {
                 setRegisterError(response.message);
                 return

@@ -37,10 +37,8 @@ const Searchbar = ({ books, setBooks, searchTerm, setSearchTerm, setSearchResult
             
             if (searchTerm) {
                 setSearchResults(filteredBooks)
-                console.log('strings', filteredBooks)
             } else {
                 setBooks(books)
-                console.log('not stings', books)
             }
         };
 

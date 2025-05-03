@@ -25,7 +25,6 @@ Step 4: ✅
         const handleCheckout = async () => {
             try {
                 const response = await reserveBook(id);
-                console.log('reserveBook response:', response);
                 setSuccessMessage('Book Reserved!');
             } catch (error) {
                 console.error(error.message);

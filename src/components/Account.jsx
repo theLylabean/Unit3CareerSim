@@ -30,7 +30,6 @@ const Account = ({ user, setUser, singleBook }) => {
     useEffect(() => {
         const getAccountDetailsAPI = async () => {
             const response = await getAccountDetails();
-            console.log(response);
             setUser(response);
         }
         getAccountDetailsAPI();

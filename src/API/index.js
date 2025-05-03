@@ -22,14 +22,12 @@ const getSingleBook = async (id) => {
 }
 
 const getLogin = async (email, password) => {
-    console.log('trying to fetch login at URL:', `${baseUrl}/users/login`)
     try {
         const res = await fetch(`${baseUrl}/users/login`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ email, password }),
         });
-        console.log('fetch response:', res)
         const result = await res.json();
         return result;
     } catch (error) {
@@ -46,7 +44,6 @@ const getRegister = async (firstname, lastname, email, password, confirmPassword
             body: JSON.stringify({ firstname, lastname, email, password }),
         });
         const result = await res.json();
-        console.log(result);
         return result;
     } catch (error) {
         console.error(error.message);
@@ -99,7 +96,6 @@ const getAccountDetails = async () => {
             throw new Error(`Failed to fetch account details: ${res.status}`)
         }
         const result = await res.json();
-        console.log(result);
         return result;
     } catch (error) {
         console.error(error.message);
