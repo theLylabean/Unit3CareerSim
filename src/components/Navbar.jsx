@@ -4,7 +4,10 @@ Step 1: ✅
 Step 2: ✅
     -import any react-router-dom, css files, and other things you'll use
 Step 3: ✅
-    -use token to authenticate user and render only what an authorized use can see (account, and logout). unauthorized users should see (home, book library, login, register).
+    -use token to authenticate user and render only what an authorized use can see (account, and logout). 
+    -unauthorized users should see (home, book library, login, register).
+Step 4: ✅
+    -Pass props needed to this component and to where the component is being called (app.jsx).
 */
 
 import { Link, useNavigate } from "react-router-dom";

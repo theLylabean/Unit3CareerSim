@@ -1,3 +1,13 @@
+/*
+Step 1: ✅
+    -create welcome page
+Step 2: ✅
+    -create header and short description of website.
+Step 3: ✅
+    -create link to naviate to book catelog page.
+*/
+
+
 import { Link } from 'react-router-dom';
 import '../css/home.css';
 import bookLogo from '../pictures/books.png'

@@ -1,3 +1,18 @@
+/*
+Step 1: ✅
+    -import any useStates, useEffects, and api calls needed.
+    -don't forget to import any css you need to link.
+Step 2: ✅
+    -create the form outline in the return.
+    -just need login user name and password.
+Step 3:✅
+    -write a handleSubmit function to authenticate a user and anything else you want to happen when the submit button is clicked.
+    -probably needs to be an async function? but not in a useEffect?
+Step 4: ✅
+    -pass props from other components that are needed and pass them to where the component is being called.
+*/
+
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getLogin } from "../API/index.js";

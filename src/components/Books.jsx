@@ -11,6 +11,9 @@ Step 3: ✅
     -deconstruct the response data if you want to. if you do this, don't forget to pass in id or the key won't work.
 Step 4: ✅
     -don't forget to pass the books={books} and setBooks={setBooks} to the component in app.jsx
+
+***UPDATED PLAN***
+    -put a ternary in to filter through the books array if the searchTerm is > 0 so that the handleSearch function from the searchbar.jsx can filter through and display those books, otherwise it will show the complete array of books that have not been filtered. ✅
 */
 
 import { useEffect } from 'react';
@@ -28,7 +31,6 @@ const Books = ({ books, setBooks, setSingleBook, searchTerm, setSearchTerm, sear
         setSearchTerm('');
         setSearchResults([]);
         navigate(`/books/${book.id}`);
-        
     }
 
     useEffect(() => {

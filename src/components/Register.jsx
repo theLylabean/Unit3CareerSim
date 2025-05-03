@@ -6,11 +6,11 @@ Step 2: ✅
     -write useStates.
 Step 3: ✅
     -create form outline that matches the useState and api schema:
-        1. first name
-        2. last name
-        3. email
-        4. password
-        5. confirm password
+        1. first name ✅
+        2. last name ✅
+        3. email ✅
+        4. password ✅
+        5. confirm password ✅
 Step 4: ✅
     -create a handleSubmit function with the api call and any conditions, errors, and authentication.
 Step 5: ✅

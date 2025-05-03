@@ -7,7 +7,7 @@ Step 2: ✅
 Step 3: ✅
     -Fetch the book data from the provided API. 
 Step 4: ✅
-    -setup the return for how you want the info to display. don't forget to include amu info that may be required.
+    -setup the return for how you want the info to display. don't forget to include any info that the api says is required.
     -You may consider conditionally rendering a 'Checkout' button for logged in users. */
 
     import { useParams, useNavigate } from "react-router-dom";
